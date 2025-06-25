@@ -32,7 +32,9 @@ export default function ProfileCard() {
             <p className="text-text-secondary text-[13px] font-normal">
               henry234@gmail.com
             </p>
-            <p className="text-text-secondary text-[13px] font-normal">0965783831</p>
+            <p className="text-text-secondary text-[13px] font-normal">
+              0965783831
+            </p>
           </div>
         </div>
       </div>
@@ -88,14 +90,16 @@ export default function ProfileCard() {
               { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
             ].map((company) => (
               <Link key={company.name} href={"/option/profile"}>
-                <div className="bg-bg-4 h-[90px] px-4 py-3 rounded-[12px] flex flex-col items-center shadow-[inset_2px_2px_4px_#F1FEFFA6]">
-                  <Image
-                    src={company.src}
-                    alt={company.name}
-                    width={200}
-                    height={200}
-                    className="w-10 h-10 rounded-full"
-                  />
+                <div className="bg-bg-4 h-[90px] px-4 py-3 rounded-[12px] flex flex-col items-center shadow-[inset_1px_1px_3px_#F1FEFFA6]">
+                  <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
+                    <Image
+                      src={company.src}
+                      alt={company.name}
+                      width={40}
+                      height={40}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
                   <span className="text-text-primary text-[12px] font-normal mt-1">
                     {company.name}
                   </span>
