@@ -14,6 +14,8 @@ export const companyData = [
     id: "1",
     name: "Ocean Bright",
     email: "oceanbright@gmail.com",
+    phone: "09489234734",
+    image: "/assets/images/logo1.png",
     services: [
       {
         id: "1",
@@ -39,6 +41,8 @@ export const companyData = [
     id: "2",
     name: "Apple",
     email: "apple@gmail.com",
+    phone: "09489234734",
+    image: "/assets/images/logo2.png",
     services: [
       {
         id: "1",
@@ -62,8 +66,10 @@ export const companyData = [
   },
   {
     id: "3",
-    name: "Pepsi",
-    email: "oceanbright@gmail.com",
+    name: "Pepsi Myanmar",
+    email: "pepsimyamnar@gmail.com",
+    phone: "09489234734",
+    image: "/assets/images/logo3.png",
     services: [
       {
         id: "1",
@@ -93,9 +99,29 @@ export const userData1 = {
   age: 23,
   address: "Yangon",
   email: "user1@gmail.com",
-  brandLogo:
-    "https://blog.logomyway.com/wp-content/uploads/2020/09/KFC-logo.jpg",
-  brandName: "KFC",
+  image: "/assets/images/hero.png",
+  service: [
+    {
+      id: "1",
+      name: "UX Designer",
+    },
+    {
+      id: "2",
+      name: "UI Designer",
+    },
+    {
+      id: "3",
+      name: "Branding",
+    },
+    {
+      id: "4",
+      name: "Digital Marketing",
+    },
+    {
+      id: "5",
+      name: "Motion Graphic Designer",
+    },
+  ],
   fb_link: "",
   youtube_link: "",
   instagram_link: "",
@@ -110,9 +136,25 @@ export const userData2 = {
   age: 24,
   address: "Mandalay",
   email: "user2@gmail.com",
-  brandLogo:
-    "https://www.shutterstock.com/image-vector/coffee-shop-logo-design-template-600nw-262828103.jpg",
-  brandName: "Coffee",
+  image: "/assets/images/hero1.png",
+  service: [
+    {
+      id: "1",
+      name: "UX Designer",
+    },
+    {
+      id: "2",
+      name: "UI Designer",
+    },
+    {
+      id: "3",
+      name: "Branding",
+    },
+    {
+      id: "4",
+      name: "Digital Marketing",
+    },
+  ],
   fb_link: "",
   youtube_link: "",
   instagram_link: "",
@@ -120,6 +162,7 @@ export const userData2 = {
   WebUUID: "web_uuid_2",
   phoneNo: "09 734343534",
 };
+
 export const cardData = [
   {
     id: "1",
@@ -128,6 +171,7 @@ export const cardData = [
     cardType: "premium",
     status: true,
     user: userData1,
+    company: companyData,
     themes: "1",
   },
   {
@@ -137,6 +181,7 @@ export const cardData = [
     cardType: "premium",
     status: true,
     user: userData2,
+    company: companyData,
     themes: "2",
   },
 ];

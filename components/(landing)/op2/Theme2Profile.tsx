@@ -1,15 +1,15 @@
+import { companyDataType, serviceType } from "@/types";
 import { CircleChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-const Theme2Profile = () => {
+const Theme2Profile = ({ companyInfo }: { companyInfo: companyDataType }) => {
   return (
     <div className="w-[425px] mx-auto min-h-screen bg-bg-primary px-4 py-6 font-sans">
       <div className="max-w-sm mx-auto rounded-xl relative">
         <div className="flex items-center justify-between">
           {/* Back Button */}
-          <Link href={"/option"}>
+          <Link href={"/card_uuid_2"}>
             <CircleChevronLeft className="text-text-primary" />
           </Link>
           {/* Contact Button */}
@@ -22,8 +22,8 @@ const Theme2Profile = () => {
         <div className="mt-12 bg-bg-secondary h-40 rounded-xl flex items-end justify-center">
           <div className="w-28 h-28 rounded-full p-1 -mb-10 shadow-md">
             <Image
-              src="/assets/images/logo2.png"
-              alt="logo"
+              src={companyInfo.image}
+              alt={companyInfo.name}
               className="rounded-full"
               width={200}
               height={200}
@@ -34,7 +34,7 @@ const Theme2Profile = () => {
         {/* Info Section */}
         <div className="mt-14 text-center">
           <h1 className="text-text-primary text-[23px] font-bold drop-shadow-md drop-shadow-shadow-primary">
-            OCEAN BRIGHT
+            {companyInfo.name}
           </h1>
           <p className="text-text-2 text-[16px] font-normal mt-1">
             Personal | Agency
@@ -42,7 +42,7 @@ const Theme2Profile = () => {
 
           <p className="mt-2">
             <span className="px-4 py-2 rounded-[32px] text-text-2 text-[16px] border border-border-secondary">
-              oceanbright23@gmail.com
+              {companyInfo.email}
             </span>
           </p>
         </div>
@@ -50,8 +50,8 @@ const Theme2Profile = () => {
         {/* Line */}
         <div className="mt-[16px] flex justify-center">
           <Image
-            src="/assets/images/line.png"
-            alt="profile"
+            src={"/assets/images/line.png"}
+            alt={"line"}
             width={200}
             height={200}
             className="w-full h-full object-cover"
@@ -64,10 +64,7 @@ const Theme2Profile = () => {
             About us
           </h2>
           <p className="text-text-1 text-[14px] font-normal">
-            Lorem ipsum dolor sit amet consectetur. Et facilisis ac mus lorem.
-            Sed eu nisl adipiscing enim mattis. Sagittis elit diam turpis netus
-            sed neque risus hendrerit. Ridiculus pulvinar dui et neque turpis
-            interdum lectus.
+            {companyInfo.about}
           </p>
         </div>
 
@@ -77,18 +74,16 @@ const Theme2Profile = () => {
             Our Services
           </h3>
           <div className="flex flex-wrap gap-2">
-            {["Software Designs", "Websites", "Mobile", "Hosting Services"].map(
-              (service) => (
-                <span
-                  key={service}
-                  className="bg-bg-3/80 text-xs px-3 py-[6px] rounded-[8px] border border-border-secondary shadow-[inset_0_0_8px_#8D899C80]"
-                >
-                  <span className="text-text-primary drop-shadow-sm drop-shadow-shadow-primary">
-                    {service}
-                  </span>
+            {companyInfo.services.map((service: serviceType, index: number) => (
+              <span
+                key={index}
+                className="bg-bg-3/80 text-xs px-3 py-[6px] rounded-[8px] border border-border-secondary shadow-[inset_0_0_8px_#8D899C80]"
+              >
+                <span className="text-text-primary drop-shadow-sm drop-shadow-shadow-primary">
+                  {service.name}
                 </span>
-              )
-            )}
+              </span>
+            ))}
           </div>
         </div>
 

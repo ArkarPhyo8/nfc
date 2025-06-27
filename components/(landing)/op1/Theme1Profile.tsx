@@ -1,3 +1,4 @@
+import { companyDataType, serviceType } from "@/types";
 import { CircleChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import React from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookF, FaTelegramPlane, FaUserAlt } from "react-icons/fa";
 
-const Theme1Profile = () => {
+const Theme1Profile = ({ companyInfo }: { companyInfo: companyDataType }) => {
   return (
     <div className="relative max-w-[425px] mx-auto font-sans">
       <div className="flex justify-end">
@@ -17,7 +18,7 @@ const Theme1Profile = () => {
       <div className="min-h-screen bg-gradient-to-b from-gradient-primary to-gradient-secondary px-4 py-6 font-sans">
         <div className="max-w-sm mx-auto rounded-xl p-4 relative">
           {/* Back Button */}
-          <Link href={"/landing"}>
+          <Link href={"/card_uuid_1"}>
             <CircleChevronLeft className="text-text_4" />
           </Link>
 
@@ -25,11 +26,11 @@ const Theme1Profile = () => {
           <div className="mt-12 bg-gradient-to-br from-gradient_3 to-gradient_4 h-40 rounded-xl flex items-end justify-center">
             <div className="w-28 h-28 rounded-full p-1 -mb-10 shadow-md">
               <Image
-                src="/assets/images/logo2.png"
+                src={companyInfo.image}
                 alt="logo"
                 className="rounded-full object-cover"
-                width={200}
-                height={200}
+                width={500}
+                height={500}
               />
             </div>
           </div>
@@ -37,17 +38,17 @@ const Theme1Profile = () => {
           {/* Info Section */}
           <div className="mt-14 text-center">
             <h1 className="text-text_primary text-[23px] font-bold drop-shadow-md drop-shadow-shadow_primary">
-              OCEAN BRIGHT
+              {companyInfo.name}
             </h1>
             <p className="text-text_1 text-[16px] font-light mt-1">
               Personal | Agency
             </p>
             <p className="text-text_1 text-[14px] font-normal mt-2">
-              09657637711, 0948393893
+              {companyInfo.phone}
             </p>
             <p className="mt-2">
               <span className="inline-block bg-bg_secondary px-4 py-2 rounded-[32px] text-text_primary text-sm border border-text_primary shadow-[inset_0_0_4px_#FFFFFF]">
-                oceanbright23@gmail.com
+                {companyInfo.email}
               </span>
             </p>
           </div>
@@ -58,10 +59,7 @@ const Theme1Profile = () => {
               About us
             </h2>
             <p className="text-text_5 text-[14px] font-normal">
-              Lorem ipsum dolor sit amet consectetur. Et facilisis ac mus lorem.
-              Sed eu nisl adipiscing enim mattis. Sagittis elit diam turpis
-              netus sed neque risus hendrerit. Ridiculus pulvinar dui et neque
-              turpis interdum lectus.
+              {companyInfo.about}
             </p>
           </div>
 
@@ -71,21 +69,18 @@ const Theme1Profile = () => {
               Our Services
             </h3>
             <div className="flex flex-wrap gap-2">
-              {[
-                "Software Designs",
-                "Websites",
-                "Mobile",
-                "Hosting Services",
-              ].map((service) => (
-                <span
-                  key={service}
-                  className="bg-bg_1/20  text-xs px-3 py-[6px] rounded-full border border-border_primary/30 drop-shadow-2xl drop-shadow-shadow_1 shadow-[inset_0_0_4px_#FFFFFF]"
-                >
-                  <span className="text-text_primary drop-shadow-xs drop-shadow-shadow_primary">
-                    {service}
+              {companyInfo.services.map(
+                (service: serviceType, index: number) => (
+                  <span
+                    key={index}
+                    className="bg-bg_1/20  text-xs px-3 py-[6px] rounded-full border border-border_primary/30 drop-shadow-2xl drop-shadow-shadow_1 shadow-[inset_0_0_4px_#FFFFFF]"
+                  >
+                    <span className="text-text_primary drop-shadow-xs drop-shadow-shadow_primary">
+                      {service.name}
+                    </span>
                   </span>
-                </span>
-              ))}
+                )
+              )}
             </div>
           </div>
 

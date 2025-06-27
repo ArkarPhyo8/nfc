@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { cardDataType } from "@/types";
+import { companyData } from "@/lib/data";
+import { cardDataType, companyDataType, serviceType } from "@/types";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,26 +12,6 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
   return (
     <div className="h-fit relative max-w-[425px] mx-auto bg-gradient-to-b from-gradient-primary to-gradient-secondary font-sans">
       <div className="flex justify-end">
-        {/* <Link
-          href="/contact.vcf"
-          className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
-        >
-          Save Contact
-        </Link> */}
-        {/* <Button
-          onClick={() => {
-            const link = document.createElement("a");
-            link.href = "/contact.vcf";
-            link.download = "contact.vcf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }}
-          className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
-        >
-          Save Contact
-        </Button> */}
-
         <Button
           onClick={() => {
             const link = document.createElement("a");
@@ -49,8 +30,8 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
         {/* Profile Image */}
         <div className=" relative w-full h-70 px-5 flex flex-col items-center justify-center">
           <Image
-            src="/assets/images/hero.png"
-            alt="Benny"
+            src={cardData.user.image}
+            alt={cardData.user.username}
             width={400}
             height={400}
             className="absolute bottom-0 mx-auto w-[250px] h-[250px] object-cover"
@@ -91,22 +72,18 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
           </div>
           {/* Roles */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {[
-              "UX Designer",
-              "UI Designer",
-              "Branding",
-              "Digital Marketing",
-              "Motion Graphic Designer",
-            ].map((role, i) => (
-              <span
-                key={i}
-                className="bg-[#AEBBE9] px-4 py-1 rounded-xl border border-border_primary "
-              >
-                <span className="text-[14px] text-text_primary font-bold drop-shadow-sm drop-shadow-shadow_primary">
-                  {role}
+            {cardData.user.service.map(
+              (service: serviceType, index: number) => (
+                <span
+                  key={index}
+                  className="bg-[#AEBBE9] px-4 py-1 rounded-xl border border-border_primary "
+                >
+                  <span className="text-[14px] text-text_primary font-bold drop-shadow-sm drop-shadow-shadow_primary">
+                    {service.name}
+                  </span>
                 </span>
-              </span>
-            ))}
+              )
+            )}
           </div>
           {/* Companies */}
           <div className="mt-10">
@@ -114,24 +91,25 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
               Company
             </h2>
             <div className="grid grid-cols-3 gap-3">
-              {[
-                { name: "Ocean Bright", src: "/assets/images/logo1.png" },
-                { name: "Apple", src: "/assets/images/logo2.png" },
-                { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
-              ].map(({ name, src }) => (
-                <Link key={name} href={"/landing/profile"}>
+              {companyData.map((item: companyDataType, index: number) => (
+                <Link
+                  key={index}
+                  href={`${cardData.cardUUID}/${cardData.themes}/${item.id}`}
+                >
                   <div className="flex flex-col h-full items-center text-center gap-1 rounded-md px-4 py-3 border border-border_primary shadow-[inset_0_0_4px_#F1FEFFA6]">
                     <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
                       <Image
-                        src={src}
-                        alt={name}
+                        src={item.image}
+                        alt={item.name}
                         width={40}
                         height={40}
                         className="object-cover w-full h-full"
                       />
                     </div>
                     <p className="text-[12px] font-normal text-text_primary text-nowrap">
-                      {name.length > 10 ? name.substring(0, 10) + "..." : name}
+                      {item.name.length > 10
+                        ? item.name.substring(0, 10) + "..."
+                        : item.name}
                     </p>
                   </div>
                 </Link>

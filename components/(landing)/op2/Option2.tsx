@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { cardDataType } from "@/types";
+import { companyData } from "@/lib/data";
+import { cardDataType, companyDataType, serviceType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,8 +30,8 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
         {/* Profile Card */}
         <div className="bg-bg-2 h-44 rounded-xl flex gap-4 overflow-auto border border-border-primary">
           <Image
-            src="/assets/images/hero1.png"
-            alt="profile"
+            src={cardData.user.image}
+            alt={cardData.user.username}
             width={200}
             height={200}
             className="w-[40%] h-full object-cover"
@@ -55,13 +56,13 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
       <div className="p-6 mt-5">
         {/* Tags */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-          {["UX Designer", "Branding", "Manager"].map((tag) => (
+          {cardData.user.service.map((service: serviceType, index: number) => (
             <span
-              key={tag}
+              key={index}
               className="bg-bg-3/50 text-white px-3 py-[6px] rounded-[8px] shadow-[inset_2px_2px_4px_#F1FEFFA6]"
             >
               <span className="text-text-primary font-medium text-[14px]">
-                {tag}
+                {service.name}
               </span>
             </span>
           ))}
@@ -97,16 +98,15 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
             Company
           </h2>
           <div className="grid grid-cols-3 gap-3 mt-3">
-            {[
-              { name: "Ocean Bright", src: "/assets/images/logo1.png" },
-              { name: "Apple", src: "/assets/images/logo2.png" },
-              { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
-            ].map((company) => (
-              <Link key={company.name} href={"/option/profile"}>
+            {companyData.map((company: companyDataType, index: number) => (
+              <Link
+                key={index}
+                href={`/${cardData.cardUUID}/${cardData.themes}/${company.id}`}
+              >
                 <div className="bg-bg-4 h-full px-4 py-3 rounded-[12px] flex flex-col items-center shadow-[inset_1px_1px_3px_#F1FEFFA6]">
                   <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
                     <Image
-                      src={company.src}
+                      src={company.image}
                       alt={company.name}
                       width={40}
                       height={40}
