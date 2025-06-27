@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { cardDataType } from "@/types";
 import { Mail } from "lucide-react";
 import Image from "next/image";
@@ -10,12 +11,39 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
   return (
     <div className="h-fit relative max-w-[425px] mx-auto bg-gradient-to-b from-gradient-primary to-gradient-secondary font-sans">
       <div className="flex justify-end">
-        <Link
+        {/* <Link
           href="/contact.vcf"
           className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
         >
           Save Contact
-        </Link>
+        </Link> */}
+        {/* <Button
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/contact.vcf";
+            link.download = "contact.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
+        >
+          Save Contact
+        </Button> */}
+
+        <Button
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/api/contact";
+            link.download = "contact.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] hover:bg-[#4A2CED]/90 shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
+        >
+          Save Contact
+        </Button>
       </div>
       <div>
         {/* Profile Image */}
