@@ -1,8 +1,8 @@
+import { cardDataType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const Option2 = ({ cardData }) => {
-  console.log("cardData-->", cardData);
+const Option2 = ({ cardData }: { cardData: cardDataType }) => {
   return (
     <div className="min-h-screen w-[425px] mx-auto bg-bg-primary text-white font-sans">
       {/* Header */}
@@ -28,10 +28,10 @@ const Option2 = ({ cardData }) => {
               {cardData.user.username}
             </h2>
             <p className="text-text-secondary text-[13px] font-normal">
-             {cardData.user.age} years old | {cardData.user.address}
+              {cardData.user.age} years old | {cardData.user.address}
             </p>
             <p className="text-text-secondary text-[13px] font-normal">
-             {cardData.user.email}
+              {cardData.user.email}
             </p>
             <p className="text-text-secondary text-[13px] font-normal">
               {cardData.user.phoneNo}

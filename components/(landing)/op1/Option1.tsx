@@ -1,12 +1,12 @@
 "use client";
-import { Mail} from "lucide-react";
+import { cardDataType } from "@/types";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookF, FaTelegramPlane, FaUserAlt } from "react-icons/fa";
 
-const Option1 = ({cardData}) => {
-
+const Option1 = ({ cardData }: { cardData: cardDataType }) => {
   return (
     <div className="h-fit relative max-w-[425px] mx-auto bg-gradient-to-b from-gradient-primary to-gradient-secondary font-sans">
       <div className="flex justify-end">
@@ -32,7 +32,7 @@ const Option1 = ({cardData}) => {
           <div className="flex flex-col items-center">
             {/* Name */}
             <h1 className="mt-6 text-[34px] font-bold text-primary-text drop-shadow-md drop-shadow-shadow_primary">
-            {cardData.user.username}
+              {cardData.user.username}
             </h1>
 
             {/* Age & Location */}
@@ -55,7 +55,7 @@ const Option1 = ({cardData}) => {
 
             {/* Phone */}
             <p className="text-text_1 text-[14px] font-medium mt-1">
-             {cardData.user.phoneNo}
+              {cardData.user.phoneNo}
             </p>
           </div>
           {/* Roles */}
