@@ -71,7 +71,7 @@ const page = () => {
                   key={service}
                   className="bg-bg_1/20  text-xs px-3 py-[6px] rounded-full border border-border_primary/30 drop-shadow-2xl drop-shadow-shadow_1 shadow-[inset_0_0_4px_#FFFFFF]"
                 >
-                  <span className="text-text_primary drop-shadow-sm drop-shadow-shadow_primary">
+                  <span className="text-text_primary drop-shadow-xs drop-shadow-shadow_primary">
                     {service}
                   </span>
                 </span>

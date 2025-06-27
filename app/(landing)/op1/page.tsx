@@ -78,19 +78,19 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { name: "Ocean Bright", logo: "/assets/images/logo1.png" },
-              { name: "Apple", logo: "/assets/images/logo2.png" },
-              { name: "Pepsi Myanmar", logo: "/assets/images/logo3.png" },
-            ].map(({ name, logo }) => (
+              { name: "Ocean Bright", src: "/assets/images/logo1.png" },
+              { name: "Apple", src: "/assets/images/logo2.png" },
+              { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
+            ].map(({ name, src }) => (
               <Link key={name} href={"/landing/profile"}>
                 <div className="flex flex-col items-center text-center gap-1 rounded-md px-4 py-3 border border-border_primary shadow-[inset_0_0_4px_#F1FEFFA6]">
-                  <div className="w-[60px] h-[60px]">
+                  <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
                     <Image
-                      src={logo}
+                      src={src}
                       alt={name}
-                      width={100}
-                      height={100}
-                      className="w-full h-full rounded-full p-1 drop-shadow-sm drop-shadow-shadow_secondary"
+                      width={40}
+                      height={40}
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <p className="text-[12px] font-normal text-text_primary">
