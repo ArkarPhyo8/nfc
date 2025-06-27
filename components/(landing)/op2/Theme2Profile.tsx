@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
+const Theme2Profile = () => {
   return (
     <div className="w-[425px] mx-auto min-h-screen bg-bg-primary px-4 py-6 font-sans">
       <div className="max-w-sm mx-auto rounded-xl relative">
@@ -145,4 +145,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Theme2Profile;

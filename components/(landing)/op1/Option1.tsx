@@ -10,9 +10,12 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
   return (
     <div className="h-fit relative max-w-[425px] mx-auto bg-gradient-to-b from-gradient-primary to-gradient-secondary font-sans">
       <div className="flex justify-end">
-        <button className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47]">
-          save contact
-        </button>
+        <Link
+          href="/contact.vcf"
+          className="text-[#FFFEFE] text-[13px] font-bold px-3 py-2 rounded-full uppercase top-[30px] right-5 absolute z-50 bg-[#4A2CED] shadow-[inset_2px_2px_10px_#FFFFFF47] cursor-pointer"
+        >
+          Save Contact
+        </Link>
       </div>
       <div>
         {/* Profile Image */}
@@ -28,7 +31,7 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gradient_1 to-transparent" />
         </div>
 
-        <div className="h-[72vh] bg-gradient-to-b from-gradient_1 to-gradient_2 px-5">
+        <div className="h-[85vh] bg-gradient-to-b from-gradient_1 to-gradient_2 px-5">
           <div className="flex flex-col items-center">
             {/* Name */}
             <h1 className="mt-6 text-[34px] font-bold text-primary-text drop-shadow-md drop-shadow-shadow_primary">
@@ -89,7 +92,7 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
                 { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
               ].map(({ name, src }) => (
                 <Link key={name} href={"/landing/profile"}>
-                  <div className="flex flex-col items-center text-center gap-1 rounded-md px-4 py-3 border border-border_primary shadow-[inset_0_0_4px_#F1FEFFA6]">
+                  <div className="flex flex-col h-full items-center text-center gap-1 rounded-md px-4 py-3 border border-border_primary shadow-[inset_0_0_4px_#F1FEFFA6]">
                     <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
                       <Image
                         src={src}
@@ -99,8 +102,8 @@ const Option1 = ({ cardData }: { cardData: cardDataType }) => {
                         className="object-cover w-full h-full"
                       />
                     </div>
-                    <p className="text-[12px] font-normal text-text_primary">
-                      {name}
+                    <p className="text-[12px] font-normal text-text_primary text-nowrap">
+                      {name.length > 10 ? name.substring(0, 10) + "..." : name}
                     </p>
                   </div>
                 </Link>

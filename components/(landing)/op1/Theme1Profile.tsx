@@ -6,7 +6,7 @@ import React from "react";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookF, FaTelegramPlane, FaUserAlt } from "react-icons/fa";
 
-const page = () => {
+const Theme1Profile = () => {
   return (
     <div className="relative max-w-[425px] mx-auto font-sans">
       <div className="flex justify-end">
@@ -127,4 +127,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Theme1Profile;
