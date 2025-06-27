@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Option2 = ({ cardData }: { cardData: cardDataType }) => {
   return (
-    <div className="min-h-screen w-[425px] mx-auto bg-bg-primary text-white font-sans">
+    <div className="min-h-screen max-w-[425px] mx-auto bg-bg-primary text-white font-sans">
       {/* Header */}
       <div className="bg-bg-secondary p-6 h-56 space-y-7">
         <div className="flex justify-between items-center">
@@ -42,7 +42,7 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
 
       <div className="p-6 mt-5">
         {/* Tags */}
-        <div className="flex items-center justify-center gap-2 mt-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
           {["UX Designer", "Branding", "Manager"].map((tag) => (
             <span
               key={tag}
@@ -91,7 +91,7 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
               { name: "Pepsi Myanmar", src: "/assets/images/logo3.png" },
             ].map((company) => (
               <Link key={company.name} href={"/option/profile"}>
-                <div className="bg-bg-4 h-[90px] px-4 py-3 rounded-[12px] flex flex-col items-center shadow-[inset_1px_1px_3px_#F1FEFFA6]">
+                <div className="bg-bg-4 h-full px-4 py-3 rounded-[12px] flex flex-col items-center shadow-[inset_1px_1px_3px_#F1FEFFA6]">
                   <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center">
                     <Image
                       src={company.src}
@@ -101,8 +101,10 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <span className="text-text-primary text-[12px] font-normal mt-1">
-                    {company.name}
+                  <span className="text-text-primary text-[12px] font-normal mt-1 text-nowrap">
+                    {company.name.length > 10
+                      ? company.name.substring(0, 10) + "..."
+                      : company.name}
                   </span>
                 </div>
               </Link>
