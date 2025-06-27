@@ -1,3 +1,5 @@
+"use client";
+import { Button } from "@/components/ui/button";
 import { cardDataType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,9 +11,19 @@ const Option2 = ({ cardData }: { cardData: cardDataType }) => {
       <div className="bg-bg-secondary p-6 h-56 space-y-7">
         <div className="flex justify-between items-center">
           <h1 className="text-text-primary font-bold text-[13px]">MYPROFILE</h1>
-          <button className="text-text-primary text-[13px] px-4 py-2 rounded-[8px] font-bold border border-text-primary">
+          <Button
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/api/contact";
+              link.download = "contact.vcf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="bg-transparent hover:bg-transparent cursor-pointer text-text-primary text-[13px] px-4 py-2 rounded-[8px] font-bold border border-text-primary"
+          >
             Save Contact
-          </button>
+          </Button>
         </div>
 
         {/* Profile Card */}
